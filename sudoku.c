@@ -15,7 +15,8 @@ int isValid(int mat[9][9], int k, int r, int c){
     
     int rowstart = r - (r%3);
     int colstart = c - (c%3);
-    
+
+    //check box
     for(int row = rowstart; row < rowstart + 3; row++){
         for(int col = colstart; col < colstart + 3; col++){
             if(mat[row][col] == k)
@@ -56,7 +57,7 @@ void solveSudoku(int mat[9][9]) {
 }
 
 int main(){
-    int mat[9][9] = {
+    int mat[9][9] = { 
         {3, 0, 6, 5, 0, 8, 4, 0, 0},
         {5, 2, 0, 0, 0, 0, 0, 0, 0},
         {0, 8, 7, 0, 0, 0, 0, 3, 1},

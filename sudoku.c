@@ -29,22 +29,15 @@ int isValid(int mat[9][9], int k, int r, int c){
 
 int solve(int mat[9][9], int r, int c){
     
-    if(r == 9)
-        return true;
-    
-    if(c == 9){
-        r++;
-        c = 0;
-    }
-    
-    if(mat[r][c] != 0)
-        return solve(mat, r, c+1);
+    if(r == 9) return true;
+    if(c == 9) return solve(mat, r+1, 0);
+     
+    if(mat[r][c] != 0) return solve(mat, r, c+1);
         
     for(int i = 1; i <= 9; i++){
         if(isValid(mat, i, r, c)){
             mat[r][c] = i;
-            if(solve(mat, r, c+1))
-                return true;
+            if(solve(mat, r, c+1)) return true;
         mat[r][c] = 0;
         }
     }
